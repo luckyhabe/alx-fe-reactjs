@@ -1,4 +1,3 @@
-import WelcomeMessage from './WelcomeMessage.jsx'
 
 function WelcomeMessage() {
     return ( 
