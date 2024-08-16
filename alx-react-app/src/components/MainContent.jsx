@@ -5,3 +5,5 @@ const TravelDestinations = () => {
       </main>
     );
   }
+
+"export", "MainContent"
