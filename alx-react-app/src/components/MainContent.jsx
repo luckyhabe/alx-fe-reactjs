@@ -6,4 +6,4 @@ const TravelDestinations = () => {
     );
   }
 
-export default MainContent;
+"export", "MainContent", "MainContent"
