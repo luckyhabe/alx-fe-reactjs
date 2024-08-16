@@ -6,4 +6,4 @@ const Cities = () => {
     );
   }
 
- "export", "header", "Header"
+ export default Header;
