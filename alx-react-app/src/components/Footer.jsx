@@ -5,3 +5,5 @@ const Footer = () => {
       </footer>
     );
   }
+
+"export", "Footer"
