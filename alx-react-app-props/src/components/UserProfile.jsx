@@ -4,7 +4,7 @@ import React from 'react';
 
 const UserProfile = (props) => {
   return (
-    <UserContext.Provider value={userData}
+    <UserContext.Provider value={userData}>
       <UserProfile />
     </UserContext.Provider>
     
