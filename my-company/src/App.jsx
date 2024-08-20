@@ -7,17 +7,26 @@ import About from './About';
 import Services from './Services';
 import Contact from './Contact';
 
-const App = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/services" component={Services} />
-        <Route path="/contact" component={Contact} />
-      </Switch>
-    </Router>
-  );
-}
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+    Children: [
+      {
+        path: 'About',
+        element: <About />
+      },
+      {
+        path: 'Services',
+        element: <Services />
+      },
+      {
+        path: 'Contact',
+        element: <Contact />
+      },
+
+    ]
+  },
+]);
 
 export default App;
