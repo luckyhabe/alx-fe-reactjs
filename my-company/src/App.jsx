@@ -11,6 +11,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Navbar />
       <Switch>
         <Route path="/" exact element={Home} />
         <Route path="/about" element={About} />
