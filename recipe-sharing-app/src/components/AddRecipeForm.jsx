@@ -31,3 +31,5 @@ const AddRecipeForm = () => {
     </form>
   );
 };
+
+export default AddRecipeList; 
