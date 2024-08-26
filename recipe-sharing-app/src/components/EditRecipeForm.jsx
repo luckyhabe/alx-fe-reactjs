@@ -9,6 +9,7 @@ const EditRecipeForm = ({ id, onClose }) => {
   const [instructions, setInstructions] = useState(recipe.instructions);
 
   const handleUpdate = () => {
+     e.preventDefault();
     useRecipeStore.updateRecipe({ id, title, prepTime, ingredients, instructions });
     onClose();
   };
