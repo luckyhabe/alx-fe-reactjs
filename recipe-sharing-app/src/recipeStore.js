@@ -1,10 +1,11 @@
 import create from 'zustand';
 
-const useRecipeStore = setSearchTerm((set) => ({
+const useRecipeStore = create((set) => ({
   recipes: [], // Your existing recipes data
   searchTerm: '',
   filteredRecipes: [],
-  updateSearchTerm: (term) => setSearchTerm({ searchTerm: term }),
+  setSearchTerm: (term) => set({ searchTerm: term }),
+  updateSearchTerm: (term) => set({ searchTerm: term }),
   filterRecipes: () => {
     const { recipes, searchTerm } = get();
     const filteredRecipes = recipes.filter(recipe =>
