@@ -4,7 +4,7 @@ const useRecipeStore = setSearchTerm((set) => ({
   recipes: [], // Your existing recipes data
   searchTerm: '',
   filteredRecipes: [],
-  updateSearchTerm: (term) => set({ searchTerm: term }),
+  updateSearchTerm: (term) => setSearchTerm({ searchTerm: term }),
   filterRecipes: () => {
     const { recipes, searchTerm } = get();
     const filteredRecipes = recipes.filter(recipe =>
