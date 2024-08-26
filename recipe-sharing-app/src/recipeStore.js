@@ -5,7 +5,7 @@ const useRecipeStore = create((set) => ({
   searchTerm: '',
   filteredRecipes: [],
   setSearchTerm: (term) => set({ searchTerm: term }),
-  updateSearchTerm: (term) => set({ searchTerm: term }),
+  
   filterRecipes: () => {
     const { recipes, searchTerm } = get();
     const filteredRecipes = recipes.filter(recipe =>
