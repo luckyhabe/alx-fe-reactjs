@@ -1,20 +1,10 @@
-import create from 'zustand';
-import RecipeList from './RecipeList';
+import { create } from 'zustand';
 
-const useRecipeStore = create((set) => ({
-  recipes: [], // Your existing recipes data
-  searchTerm: '',
-  filteredRecipes: [],
-  setSearchTerm: (term) => set({ searchTerm: term }),
-  updateSearchTerm: (term) => set({ searchTerm: term }),
-  
-  filterRecipes: () => {
-    const { recipes, searchTerm } = get();
-    const filteredRecipes = recipes.filter(recipe =>
-      recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    set({ filteredRecipes });
-  }
+export const useRecipeStore = create((set) => ({
+  recipes: [],
+  addRecipe: (newRecipe) => set((state) => ({ recipes: [...state.recipes, newRecipe] })),
+  deleteRecipe: (recipeId) => set((state) => ({ recipes: state.recipes.filter(recipe => recipe.id !== recipeId) })),
+  updateRecipe: (updatedRecipe) => set((state) => ({
+    recipes: state.recipes.map(recipe => (recipe.id === updatedRecipe.id ? updatedRecipe : recipe))
+  })),
 }));
-
-export default useRecipeStore;
