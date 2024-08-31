@@ -1,33 +1,44 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
-const ControlledForm = () => {
-    const [formData, setFormData] = useState({ name: '', email: '' });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({ ...prevState, [name]: value }));
-    };
+const RegistrationForm = () => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        if (!username || !email || !password) {
+            setError('Please fill in all fields');
+        } else {
+            // Submit the form
+            setError('');
+            // Add your form submission logic here
+        }
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
+            <input 
+                type="text" 
+                placeholder="Username" 
+                value={username} 
+                onChange={(e) => setUsername(e.target.value)} 
             />
-            <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
+            <input 
+                type="email" 
+                placeholder="Email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+            />
+            <input 
+                type="password" 
+                placeholder="Password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
             />
             <button type="submit">Submit</button>
+            {error && <div>{error}</div>}
         </form>
     );
 };
