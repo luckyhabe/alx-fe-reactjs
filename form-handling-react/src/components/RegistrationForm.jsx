@@ -9,26 +9,26 @@ const RegistrationForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!username || !email || !password) {
-            setError('Please fill in all fields');
+            setErrors('Please fill in all fields');
         } else {
             // Submit the form
-            setError('');
+            setErrors('');
             // Add your form submission logic here
         }
         
         if (!email) {
-            setError('Please fill in all fields');
+            setErrors('Please fill in all fields');
         } else {
             // Submit the form
-            setError('');
+            setErrors('');
             // Add your form submission logic here
         }
 
         if (!password) {
-            setError('Please fill in all fields');
+            setErrors('Please fill in all fields');
         } else {
             // Submit the form
-            setError('');
+            setErrors('');
             // Add your form submission logic here
         }
 
