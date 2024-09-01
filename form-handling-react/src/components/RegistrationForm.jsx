@@ -15,6 +15,23 @@ const RegistrationForm = () => {
             setError('');
             // Add your form submission logic here
         }
+        
+        if (!email) {
+            setError('Please fill in all fields');
+        } else {
+            // Submit the form
+            setError('');
+            // Add your form submission logic here
+        }
+
+        if (!password) {
+            setError('Please fill in all fields');
+        } else {
+            // Submit the form
+            setError('');
+            // Add your form submission logic here
+        }
+
     };
 
     return (
