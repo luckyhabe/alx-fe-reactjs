@@ -5,14 +5,14 @@ import { useQuery, useQueryClient } from 'react-query';
 const PostsComponent = () => {
     const queryClient = useQueryClient();
 
-    const { isLoading, error, data } = useQuery('fetchPosts', () =>
+    const { isLoading, error, data } = useQuery('posts', () =>
         fetch('https://jsonplaceholder.typicode.com/posts').then(res =>
             res.json()
         )
     );
 
     const handleRefetch = () => {
-        queryClient.invalidateQueries('posts');
+        queryClient.invalidateQueries(fetchPosts');
     };
 
     if (isLoading) return <p>Loading...</p>;
