@@ -11,6 +11,13 @@ const PostsComponent = () => {
         )
     );
 
+        {
+        cacheTime: 5 * 60 * 100,
+        staleTime: 30 * 1000,
+        refetchOnWindowFocus: true,
+        keepPreviousData:true,
+    }
+    
     const handleRefetch = () => {
         queryClient.invalidateQueries(fetchPosts');
     };
