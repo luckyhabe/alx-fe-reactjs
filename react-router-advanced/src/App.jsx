@@ -44,7 +44,7 @@ const BlogPost = ({ match }) => {
 <BrowserRouter>
 <Routes>
   <Switch>
-    <Route path="/blog/:postId" component={BlogPost} />
+    <Route path="/blog/:id" component={BlogPost} />
   </Switch>
 </Routes>
 </BrowserRouter>
