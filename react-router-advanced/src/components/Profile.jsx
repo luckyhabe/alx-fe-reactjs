@@ -3,7 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 const App = () => {
   return (
     <BrowserRouter>
+      <Routes>
       <Route path="/profile" component={Profile} />
+      </Routes>
     </BrowserRouter>
   );
 };
