@@ -5,12 +5,14 @@ import Profile from './Profile';
 import Login from './Login';
 
 const App = () => (
-  <Router>
+  <BrowserRouter>
+  <Routes>
     <Switch>
       <Route path="/login" component={Login} />
       <ProtectedRoute path="/profile" component={Profile} />
     </Switch>
-  </Router>
+  </Routes>
+  </BrowserRouter>
 );
 
 export default App;
