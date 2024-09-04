@@ -1,23 +1,26 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ProtectedRoute from './ProtectedRoute';
+import Profile from './Profile';
+import Login from './Login';
 
-const isAuthenticated = () => {
-  // Implement your authentication check logic here
-  // For example, check if the user is logged in
-  return true; // Return true for demonstration
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  return (
+    <Routes>
+    <Router>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <ProtectedRoute
+          path="/profile"
+          component={Profile}
+          isAuthenticated={isAuthenticated}
+        />
+      </Switch>
+    </Router>
+    </Routes>
+  );
 };
 
-const ProtectedRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={props =>
-      isAuthenticated() ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/login" />
-      )
-    }
-  />
-);
-
-export default ProtectedRoute;
+export default App;
