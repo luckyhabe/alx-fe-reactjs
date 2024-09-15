@@ -17,7 +17,32 @@ const AddRecipeForm = () => {
             setFormError('Please include at least two ingredients');
             return;
         }
-        // Add logic here to submit the form data
+        if(!steps.trim()){
+            newErrors.steps = 'Preparation steps are required'
+        }
+
+        return newErrors;
+    }
+
+        const formErrors = validateForm();
+        if(Object.keys(formErrors).length > 0){
+            setErrors(formErrors);
+            return;
+        }
+
+        const newRecipe = {
+            title, 
+            ingredients: ingredients.split(',').map(item => item.trim()),
+            steps
+        };
+
+        console.log('Submitted Recipe: ', newRecipe);
+
+        setTitle('');
+        setIngredients('');
+        setSteps('');
+        setErrors({});
+    
     };
 
     return (
@@ -32,6 +57,5 @@ const AddRecipeForm = () => {
             <button type="submit" className="bg-blue-500 text-white py-2 px-4 mt-2 rounded">Submit</button>
         </form>
     );
-};
 
 export default AddRecipeForm;
