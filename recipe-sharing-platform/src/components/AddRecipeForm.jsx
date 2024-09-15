@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 const AddRecipeForm = () => {
     const [title, setTitle] = useState('');
     const [ingredients, setIngredients] = useState('');
-    const [preparationSteps, setPreparationSteps] = useState('');
-    const [formError, setFormError] = useState('');
+    const [steps, setSteps] = useState('');
+    const [errors, setErrors] = useState({})
 
     const handleSubmit = (e) => {
         e.preventDefault();
