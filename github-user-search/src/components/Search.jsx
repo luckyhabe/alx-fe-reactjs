@@ -40,7 +40,7 @@ const Search = () => {
       {error && <p>Looks like we can't find the user</p>}
       {userData && (
         <div>
-          <img src={userData.avatar_url} alt="User Avatar" />
+          <img src={userData.avatar_url} alt={userData.login} />
           <p>Name: {userData.name}</p>
           <a href={userData.html_url}>GitHub Profile</a>
         </div>
