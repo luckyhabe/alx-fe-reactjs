@@ -1,16 +1,28 @@
 import React, { useState } from 'react';
+import { fetchUserData } from '../services/githubService';
+import React from 'react';
 
 const Search = () => {
   const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   const handleChange = (e) => {
     setUsername(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform actions with the entered username, like making API calls
-    console.log(username);
+    setLoading(true);
+    setError(null);
+    try {
+      const data = await fetchUserData(username);
+      setUserData(data);
+    } catch (error) {
+      setError(error.message);
+    }
+    setLoading(false);
   };
 
   return (
@@ -24,6 +36,15 @@ const Search = () => {
         />
         <button type="submit">Search</button>
       </form>
+      {loading && <p>Loading...</p>}
+      {error && <p>Looks like we can't find the user</p>}
+      {userData && (
+        <div>
+          <img src={userData.avatar_url} alt="User Avatar" />
+          <p>Name: {userData.name}</p>
+          <a href={userData.html_url}>GitHub Profile</a>
+        </div>
+      )}
     </div>
   );
 };
