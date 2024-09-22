@@ -7,6 +7,8 @@ const Search = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userData, setUserData] = useState(null);
+  const [location, setLocation] = useState('');
+  const [minRepos, setMinRepos] = useState(0);
 
   const handleChange = (e) => {
     setUsername(e.target.value);
@@ -34,6 +36,23 @@ const Search = () => {
           value={username}
           onChange={handleChange}
         />
+<input
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="location"
+    type="text"
+    placeholder="Enter location"
+    value={location}
+    onChange={(e) => setLocation(e.target.value)}
+/>
+<input
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="minRepositories"
+    type="number"
+    placeholder="Enter minimum repositories"
+    value={minRepos}
+    onChange={(e) => setMinRepos(e.target.value)}
+/>
+
         <button type="submit">Search</button>
       </form>
       {loading && <p>Loading...</p>}
