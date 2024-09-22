@@ -28,7 +28,7 @@ const Search = () => {
     setLoading(true);
     setError(null);
     try {
-      const data = await fetchUserData(username);
+      const data = await fetchUserData(username, location, minRepos);
       setUserData(data);
     } catch (error) {
       setError("Looks like we cant find the user.");
