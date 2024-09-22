@@ -36,7 +36,19 @@ const Search = () => {
           value={username}
           onChange={handleChange}
         />
-<input
+
+        <button type="submit">Search</button>
+      </form>
+      {loading && <p>Loading...</p>}
+      {error && <p>Looks like we can't find the user</p>}
+      {userData && (
+        <div>
+          
+          <img src={userData.avatar_url} alt={userData.login} />
+          <p>Name: {userData.name}</p>
+          <a href={userData.html_url}>GitHub Profile</a>
+
+          <input
     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
     id="location"
     type="text"
@@ -53,16 +65,16 @@ const Search = () => {
     onChange={(e) => setMinRepos(e.target.value)}
 />
 
-        <button type="submit">Search</button>
-      </form>
-      {loading && <p>Loading...</p>}
-      {error && <p>Looks like we can't find the user</p>}
-      {userData && (
-        <div>
-          
-          <img src={userData.avatar_url} alt={userData.login} />
-          <p>Name: {userData.name}</p>
-          <a href={userData.html_url}>GitHub Profile</a>
+{repositories.length > 0 && (
+  <div>
+    <h2>User Repositories:</h2>
+    <ul>
+      {repositories.map(repo => (
+        <li key={repo.id}>{repo.name}</li>
+      ))}
+    </ul>
+  </div>
+)}
 
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
             <div className="mb-4">
