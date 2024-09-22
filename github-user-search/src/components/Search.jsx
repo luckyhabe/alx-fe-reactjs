@@ -14,6 +14,15 @@ const Search = () => {
     setUsername(e.target.value);
   };
 
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+  };
+
+  const handleMinReposChange = (e) => {
+    setMinRepos(e.target.value);
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
